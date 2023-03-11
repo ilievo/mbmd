@@ -1,9 +1,0 @@
-.vscode/
-*.json
-*.sh
-*.yaml
-dist/
-linux-*.Dockerfile
-mbmd
-!entrypoint.sh
-!mbmd.dist.yaml

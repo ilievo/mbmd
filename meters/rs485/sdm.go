@@ -21,15 +21,15 @@ func NewSDMProducer() Producer {
 		VoltageL1:     0x0000, // 220, 230
 		VoltageL2:     0x0002,
 		VoltageL3:     0x0004,
-		CurrentL1:     0x0006, // 220, 230
-		CurrentL2:     0x0008,
-		CurrentL3:     0x000A,
-		PowerL1:       0x000C, //      230
-		PowerL2:       0x000E,
-		PowerL3:       0x0010,
-		Power:         0x0034,
+		CurrentL1:     0x0008, // 220, 230
+		CurrentL2:     0x000A,
+		CurrentL3:     0x000C,
+		PowerL1:       0x0012, //      230
+		PowerL2:       0x0014,
+		PowerL3:       0x0016,
+		Power:         0x0010,
 		ApparentPower: 0x0038,
-		ReactivePower: 0x003C,
+		ReactivePower: 0x0018,
 		ImportPower:   0x0054,
 		ImportL1:      0x015a,
 		ImportL2:      0x015c,
@@ -42,7 +42,7 @@ func NewSDMProducer() Producer {
 		SumL1:         0x0166,
 		SumL2:         0x0168,
 		SumL3:         0x016a,
-		Sum:           0x0156, // 220
+		Sum:           0x0100, // 220
 		CosphiL1:      0x001e, //      230
 		CosphiL2:      0x0020,
 		CosphiL3:      0x0022,
@@ -51,7 +51,7 @@ func NewSDMProducer() Producer {
 		THDL2:         0x00ec, // voltage
 		THDL3:         0x00ee, // voltage
 		THD:           0x00F8, // voltage
-		Frequency:     0x0046, //      230
+		Frequency:     0x0036, //      230
 		//L1THDCurrent: 0x00F0, // current
 		//L2THDCurrent: 0x00F2, // current
 		//L3THDCurrent: 0x00F4, // current

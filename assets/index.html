@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>MBMD</title>
+	<title>Shushland Power Monitor</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=yes" />
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link href="css/app.css" rel="stylesheet">
@@ -11,7 +11,7 @@
 
 <body>
 	<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
-		<a class="navbar-brand" href="/">MBMD</a>
+		<a class="navbar-brand" href="/">Shushland Power Monitor</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navContent"
 			aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -26,9 +26,6 @@
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#status">Status</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#about">About</a>
 				</li>
 			</ul>
 			<span id="time" class="navbar-text">
@@ -132,66 +129,12 @@
 						<td class="col-3" v-if="pop(m.Power)">${ m.Power }</td>
 						<td class="col-3" v-else>${ (val(m.PowerL1) + val(m.PowerL2) + val(m.PowerL3)).toFixed(2) }</td>
 					</tr>
-					<tr class="d-flex"
-						v-if="pop(m.ReactivePowerL1, m.ReactivePowerL2, m.ReactivePowerL3, m.ReactivePower)">
-						<td class="col-3">Reactive Power (var)</td>
-						<td class="col-2" v-if="pop(m.ReactivePowerL1)">${ m.ReactivePowerL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ReactivePowerL2)">${ m.ReactivePowerL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ReactivePowerL3)">${ m.ReactivePowerL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.ReactivePower)">${ m.ReactivePower }</td>
-						<td class="col-3" v-else>${ (val(m.ReactivePowerL1) + val(m.ReactivePowerL2) +
-							val(m.ReactivePowerL3)).toFixed(2) }</td>
-					</tr>
-					<tr class="d-flex"
-						v-if="pop(m.ApparentPowerL1, m.ApparentPowerL2, m.ApparentPowerL3, m.ApparentPower)">
-						<td class="col-3">Apparent Power (VA)</td>
-						<td class="col-2" v-if="pop(m.ApparentPowerL1)">${ m.ApparentPowerL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ApparentPowerL2)">${ m.ApparentPowerL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ApparentPowerL3)">${ m.ApparentPowerL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.ApparentPower)">${ m.ApparentPower }</td>
-						<td class="col-3" v-else>${ (val(m.ApparentPowerL1) + val(m.ApparentPowerL2) +
-							val(m.ApparentPowerL3)).toFixed(2) }</td>
-					</tr>
-					<tr class="d-flex" v-if="pop(m.ImportPowerL1, m.ImportPowerL2, m.ImportPowerL3, m.ImportPower)">
-						<td class="col-3">Import Power (W)</td>
-						<td class="col-2" v-if="pop(m.ImportPowerL1)">${ m.ImportPowerL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ImportPowerL2)">${ m.ImportPowerL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ImportPowerL3)">${ m.ImportPowerL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.ImportPower)">${ m.ImportPower }</td>
-						<td class="col-3" v-else>${ (val(m.ImportPowerL1) + val(m.ImportPowerL2) +
-							val(m.ImportPowerL3)).toFixed(2) }
-					</tr>
-					<tr class="d-flex" v-if="pop(m.ExportPowerL1, m.ExportPowerL2, m.ExportPowerL3, m.ExportPower)">
-						<td class="col-3">Export Power (W)</td>
-						<td class="col-2" v-if="pop(m.ExportPowerL1)">${ m.ExportPowerL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ExportPowerL2)">${ m.ExportPowerL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ExportPowerL3)">${ m.ExportPowerL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.ExportPower)">${ m.ExportPower }</td>
-						<td class="col-3" v-else>${ (val(m.ExportPowerL1) + val(m.ExportPowerL2) +
-							val(m.ExportPowerL3)).toFixed(2) }</td>
-					</tr>
-					<tr class="d-flex" v-if="pop(m.SumL1, m.SumL2, m.SumL3, m.Sum)">
-						<td class="col-3">Sum (kWh)</td>
-						<td class="col-2" v-if="pop(m.SumL1)">${ m.SumL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.SumL2)">${ m.SumL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.SumL3)">${ m.SumL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.Sum)">${ m.Sum }</td>
-						<td class="col-3" v-else>${ (val(m.SumL1) + val(m.SumL2) + val(m.SumL3)).toFixed(2) }</td>
+					<tr class="d-flex" v-if="pop(m.Sum)">
+						<td class="col-3">Total (kWh)</td>
+						<td class="col-2">&mdash;</td>
+						<td class="col-2">&mdash;</td>
+						<td class="col-2">&mdash;</td>
+						<td class="col-3">${ m.Sum }</td>
 					</tr>
 					<tr class="d-flex" v-if="pop(m.SumT1)">
 						<td class="col-3">Tariff 1 Sum (kWh)</td>
@@ -207,17 +150,6 @@
 						<td class="col-2">&mdash;</td>
 						<td class="col-3">${ m.SumT2 }</td>
 					</tr>
-					<tr class="d-flex" v-if="pop(m.ImportL1, m.ImportL2, m.ImportL3, m.Import)">
-						<td class="col-3">Import (kWh)</td>
-						<td class="col-2" v-if="pop(m.ImportL1)">${ m.ImportL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ImportL2)">${ m.ImportL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ImportL3)">${ m.ImportL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.Import)">${ m.Import }</td>
-						<td class="col-3" v-else>${ (val(m.ImportL1) + val(m.ImportL2) + val(m.ImportL3)).toFixed(2) }</td>
-					</tr>
 					<tr class="d-flex" v-if="pop(m.ImportT1)">
 						<td class="col-3">Tariff 1 Import (kWh)</td>
 						<td class="col-2">&mdash;</td>
@@ -231,17 +163,6 @@
 						<td class="col-2">&mdash;</td>
 						<td class="col-2">&mdash;</td>
 						<td class="col-3">${ m.ImportT2 }</td>
-					</tr>
-					<tr class="d-flex" v-if="pop(m.ExportL1, m.ExportL2, m.ExportL3, m.Export)">
-						<td class="col-3">Export (kWh)</td>
-						<td class="col-2" v-if="pop(m.ExportL1)">${ m.ExportL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ExportL2)">${ m.ExportL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.ExportL3)">${ m.ExportL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.Export)">${ m.Export }</td>
-						<td class="col-3" v-else>${ (val(m.ExportL1) + val(m.ExportL2) + val(m.ExportL3)).toFixed(2) }</td>
 					</tr>
 					<tr class="d-flex" v-if="pop(m.ExportT1)">
 						<td class="col-3">Tariff 1 Export (kWh)</td>
@@ -336,28 +257,6 @@
 						<td class="col-2">&mdash;</td>
 						<td class="col-3">${ m.ReactiveExportT2 }</td>
 					</tr>
-					<tr class="d-flex" v-if="pop(m.CosphiL1, m.CosphiL2, m.CosphiL3, m.Cosphi)">
-						<td class="col-3">Power Factor (cos 𝜑)</td>
-						<td class="col-2" v-if="pop(m.CosphiL1)">${ m.CosphiL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.CosphiL2)">${ m.CosphiL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.CosphiL3)">${ m.CosphiL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.Cosphi)">${ m.Cosphi }</td>
-						<td class="col-3" v-else>&mdash;</td>
-					</tr>
-					<tr class="d-flex" v-if="pop(m.THDL1, m.THDL2, m.THDL3, m.THD)">
-						<td class="col-3">THD Voltage (%)</td>
-						<td class="col-2" v-if="pop(m.THDL1)">${ m.THDL1 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.THDL2)">${ m.THDL2 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-2" v-if="pop(m.THDL3)">${ m.THDL3 }</td>
-						<td class="col-2" v-else>&mdash;</td>
-						<td class="col-3" v-if="pop(m.THD)">${ m.THD }</td>
-						<td class="col-3" v-else>&mdash;</td>
-					</tr>
 					<tr class="d-flex" v-if="pop(m.PhaseAngle)">
 						<td class="col-3">Phase Angle</td>
 						<td class="col-2">&mdash;</td>
@@ -401,15 +300,6 @@
 					</tr>
 				</tbody>
 			</table>
-		</div>
-
-		<div id="about">
-			<h1>About MBMD</h1>
-			<p>MBMD collects measurements from modbus devices.
-				It works with meters like the Eastron SDM630 as well as grid inverters like SMA Sunny Boy.<br/>
-				Please <a href="https://github.com/volkszaehler/mbmd">refer to the documentation
-				</a> for more information.</p>
-			<p>This installation runs MBMD version {{.SoftwareVersion}} (compiled with {{.GolangVersion}})</p>
 		</div>
 	</div>
 	<!-- /.container -->

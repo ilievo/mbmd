@@ -78,8 +78,8 @@ any type is considered valid.
 	)
 	runCmd.PersistentFlags().String(
 		"api",
-		"0.0.0.0:8080",
-		"REST API url. Use 127.0.0.1:8080 to limit to localhost.",
+		"0.0.0.0:8888",
+		"REST API url. Use 127.0.0.1:8888 to limit to localhost.",
 	)
 	runCmd.PersistentFlags().String(
 		"profile",
